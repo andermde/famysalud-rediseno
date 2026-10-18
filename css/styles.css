@@ -1799,3 +1799,17 @@ input[aria-invalid="true"] { border-color: var(--magenta); }
 }
 
 .news-card--eventos.news-card--poster .news-card__link { background: var(--magenta); }
+
+/* ---------- Mapa de Antioquia ---------- */
+.coverage__map svg { max-height: 82vh; overflow: visible; }
+.map__state { fill: rgb(126 182 31 / .14); stroke: var(--pulso); stroke-width: 1.6; stroke-linejoin: round; }
+.map__regions text,
+.map__region { font: 700 10px var(--font); letter-spacing: .14em; text-transform: uppercase; fill: var(--oliva); opacity: .75; text-anchor: middle; }
+.map__links path { stroke-width: 1.6; }
+.map__leader { stroke: var(--oliva) !important; stroke-dasharray: 4 5; opacity: .6 !important; }
+.map__cluster { fill: rgb(187 147 35 / .12); stroke: var(--oro); stroke-width: 1.5; stroke-dasharray: 3 4; }
+.map__place text { font: 600 13px var(--font); paint-order: stroke; stroke: var(--papel); stroke-width: 4px; stroke-linejoin: round; }
+.map__inset rect { fill: rgb(255 255 255 / .82); stroke: rgb(44 117 50 / .25); filter: drop-shadow(0 12px 24px rgb(44 117 50 / .14)); }
+.map__inset .map__place text { stroke: var(--blanco); }
+.map__inset-title { font: 700 10px var(--font); letter-spacing: .12em; text-transform: uppercase; fill: var(--pulso-texto); }
+.map__hq-note { font-size: 10px; font-weight: 700; fill: var(--oro-osc); }

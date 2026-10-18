@@ -459,9 +459,14 @@
   function coverage() {
     const map = $('[data-map]');
     if (!map) return;
-    const links = $$('[data-link]', map);
+    const links = $$('[data-link]:not(.map__leader)', map);
+    const state = $('[data-state]', map);
     gsap.set(links, { strokeDasharray: (i, el) => el.getTotalLength(), strokeDashoffset: (i, el) => el.getTotalLength() });
+    gsap.set(state, { strokeDasharray: 1, strokeDashoffset: 1, fillOpacity: 0 });
     gsap.timeline({ scrollTrigger: { trigger: map, start: 'top 75%', toggleActions: 'play none none none' } })
+      .to(state, { strokeDashoffset: 0, duration: 1.6, ease: 'power2.inOut' })
+      .to(state, { fillOpacity: 1, duration: 0.6 }, '-=0.4')
+      .from('.map__regions text, .map__inset, .map__cluster, .map__leader', { opacity: 0, duration: 0.5, stagger: 0.05 }, '-=0.3')
       .from('.map__place--hq', { scale: 0, transformOrigin: 'center', duration: 0.5, ease: 'back.out(3)' })
       .to(links, { strokeDashoffset: 0, duration: 0.9, stagger: 0.06, ease: 'power2.inOut' }, '<0.2')
       .from($$('.map__place:not(.map__place--hq)', map), { opacity: 0, scale: 0.4, transformOrigin: 'center', duration: 0.4, stagger: 0.06, ease: 'back.out(2.5)' }, '<0.4');
